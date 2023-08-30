@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5afd26dc12f721c43b6114542e12b1d9, type: 3}
+  m_Name: SO_VO_C4_02_Attack
+  m_EditorClassIdentifier: 
+  Clips:
+  - {fileID: 8300000, guid: 4b97a01bce86db34ba8e421e54abd178, type: 3}
+  - {fileID: 8300000, guid: 2a9c2440778d8094fbdca41bd79e7633, type: 3}
+  - {fileID: 8300000, guid: 789c2de2c8b034148a1b8f2c82e9f360, type: 3}
+  - {fileID: 8300000, guid: d60e2e2fd96e0834485e62a2dedc3167, type: 3}
+  Volume_min: 1.5
+  Volume_max: 2
+  Pitch_min: 1
+  Pitch_max: 1

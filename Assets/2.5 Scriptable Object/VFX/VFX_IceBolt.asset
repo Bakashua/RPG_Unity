@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b07489ac648389c499a2263745ac3036, type: 3}
+  m_Name: VFX_IceBolt
+  m_EditorClassIdentifier: 
+  Fx: {fileID: 5112403345868107898, guid: 6f34ef0d986e9db4199cf75805f79753, type: 3}
+  Target: {fileID: 0}
+  Vfx_Audio: {fileID: 11400000, guid: 4347f598ca488a74fa8f9c965306a892, type: 2}

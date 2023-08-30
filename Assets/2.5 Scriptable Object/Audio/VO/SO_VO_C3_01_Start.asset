@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5afd26dc12f721c43b6114542e12b1d9, type: 3}
+  m_Name: SO_VO_C3_01_Start
+  m_EditorClassIdentifier: 
+  Clips:
+  - {fileID: 8300000, guid: 6d9a15ee4e3f24f4db7771a1afe89e82, type: 3}
+  - {fileID: 8300000, guid: 7aa427cd49d20c34e855f2638a446661, type: 3}
+  - {fileID: 8300000, guid: cba44bb054997d04887ebfea0f8fe88b, type: 3}
+  Volume_min: 1
+  Volume_max: 1
+  Pitch_min: 1
+  Pitch_max: 1

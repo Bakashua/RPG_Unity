@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 689fdd03b7e78d3468f8c29cf1285f0d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - BSM: {instanceID: 0}
+  - damageMatrice: {instanceID: 0}
+  - StringToFormula: {fileID: 11400000, guid: cfefbb0c53f4b61408afc48485e2a779, type: 2}
+  - Event_DomagePopUp: {fileID: 11400000, guid: 2121a52b61ab6c742a5e333c5fdb0744,
+      type: 2}
+  - UI_SO_DamagePopUp: {fileID: 11400000, guid: 4713926a49f08274f817194b87c10725,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44c114914087ead45b0eb1fc4f80c44a, type: 3}
+  m_Name: EZComboTest
+  m_EditorClassIdentifier: 
+  caster: {fileID: 0}
+  target: {fileID: 0}
+  statusName: LimitBreak
+  comboElem: 3
+  Combo: warm
+  icon: {fileID: 21300000, guid: 9fa03c9ff257b494c8e091140bfe831f, type: 3}
+  statusID: 0
+  priority: 0
+  effect:
+    m_PersistentCalls:
+      m_Calls: []
+  HasTrait: 0
+  trait: []
+  statusState: 0
+  damage: 0
+  numberOfStacks: 0
+  numberOfTurn: 3
+  numberTurnLeft: 3
+  isUIon: 0
+  isBeneficial: 0
+  canStack: 0
+  canIncrementTurn: 0
+  isRemovable: 0
+  VFX_Text: {fileID: 904662820145583817, guid: 0e5fed6e01fa3ab41b22102c8d6c6400, type: 3}

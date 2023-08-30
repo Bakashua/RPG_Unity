@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 689fdd03b7e78d3468f8c29cf1285f0d, type: 3}
+  m_Name: Buff_Ally
+  m_EditorClassIdentifier: 
+  BSM: {fileID: 0}
+  damageMatrice: {fileID: 0}
+  GainPP: {fileID: 11400000, guid: 5b11db5bff927e340bfc711579d9fa72, type: 2}
+  Event_DomagePopUp: {fileID: 11400000, guid: 2121a52b61ab6c742a5e333c5fdb0744, type: 2}
+  UI_SO_DamagePopUp: {fileID: 11400000, guid: 4713926a49f08274f817194b87c10725, type: 2}
+  VFX: {fileID: 11400000, guid: f8be19fb5dfdbb84ebb83a4099a51eb1, type: 2}
+  GeneralSetting:
+    attackName: 
+    icon: {fileID: 21300000, guid: 220f67cab670c7047bbfc23d93af4e56, type: 3}
+    Formula: a.currAtk
+    FormulaCrit: a.currAtk
+    UsingCondition: 0
+    condition:
+      Higher: 0
+      Isstatus: 0
+      DoRefill: 0
+      UnlockStatus: 0
+      ConditionStats: 
+      ConditionStatsMax: 
+      threshold: 0.5
+      refill: 0.5
+      statusTest: {fileID: 0}
+      FormulaC: 
+    attackDescription: 
+  Enumsetting:
+    usedOn: 1
+    attackCategory: 2
+    attackType: 0
+    targetType: 2
+    occasion: 0
+    elements: 8
+    comboType: 0
+  BaseAttackdata:
+    attackDamage: 20
+    attackMPCost: 0
+    attackTPCost: 0
+    MaxCooldown: 0
+    CurrentCooldown: 0
+    varianceMin: 1.1
+    varianceMax: 1.1
+    breakDamage: 5
+    elementMultiplicateur: 0
+  InvocationSetting:
+    critChance: 5
+    critMultiplier: 0
+    speed: 0
+    atkPres: 1
+    atkMissRate: 1
+    MPGain: 0
+    TPGain: 0
+  canApplyStatus: 1
+  selfStatus: 0
+  StatusEffectAffliction:
+  - {fileID: 11400000, guid: ac6d877b1deda4246a0bd363a5587165, type: 2}
+  IsRanged: 1
+  targetInAOE: []
+  targetTile: []
+  TilesInRange: []
+  range: 1
+  aoeMaxDistance: 1

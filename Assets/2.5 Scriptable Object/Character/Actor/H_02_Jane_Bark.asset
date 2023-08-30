@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6954d01f87e66d24786eaf0ba466744b, type: 3}
+  m_Name: H_02_Jane_Bark
+  m_EditorClassIdentifier: 
+  source: {fileID: 0}
+  Bark_Start: {fileID: 11400000, guid: e78b8fd4f872e994398fa0f11e8e1ee9, type: 2}
+  Bark_Attack: {fileID: 11400000, guid: 392a516142abe4e4aa2a40776e04c5da, type: 2}
+  Bark_FinishEn: {fileID: 11400000, guid: f3d2b40313f21d44b81629cf4bb51948, type: 2}
+  Bark_GetHits: {fileID: 11400000, guid: 2f9b77631bfb18f4e866af7771e9e320, type: 2}
+  Bark_EndCombat: {fileID: 11400000, guid: 34fa201f35341ec4dae38efd73cd0fda, type: 2}

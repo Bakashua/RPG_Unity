@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b07489ac648389c499a2263745ac3036, type: 3}
+  m_Name: VFX_DaggerThrow
+  m_EditorClassIdentifier: 
+  Fx: {fileID: 2353600328335836179, guid: ceec7516237b4104b94300043ca39784, type: 3}
+  Target: {fileID: 0}
+  Vfx_Audio: {fileID: 11400000, guid: f0a937a5b4da4574eb4652c305cdd072, type: 2}

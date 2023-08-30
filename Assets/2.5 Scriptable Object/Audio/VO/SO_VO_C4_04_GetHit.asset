@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5afd26dc12f721c43b6114542e12b1d9, type: 3}
+  m_Name: SO_VO_C4_04_GetHit
+  m_EditorClassIdentifier: 
+  Clips:
+  - {fileID: 8300000, guid: 3137759c99928304299450b40fbf4e4a, type: 3}
+  - {fileID: 8300000, guid: 76917f707e531ec4aa8cc94ba1f4a67c, type: 3}
+  - {fileID: 8300000, guid: 18852886c6d0c2140bb66aa091912479, type: 3}
+  Volume_min: 1
+  Volume_max: 1
+  Pitch_min: 1
+  Pitch_max: 1

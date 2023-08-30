@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 39403acb92e3d99438861bbb6a8f5d18
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - hero: {fileID: 11400000, guid: 15c663bfc5d80314ba16f1e18709809b, type: 2}
+  - Hero: {instanceID: 0}
+  - heroHP: {instanceID: 0}
+  - heroMP: {instanceID: 0}
+  - heroTP: {instanceID: 0}
+  - hpSlider: {instanceID: 0}
+  - mpSlider: {instanceID: 0}
+  - tpSlider: {instanceID: 0}
+  - progressBar: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

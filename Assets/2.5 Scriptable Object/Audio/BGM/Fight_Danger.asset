@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5afd26dc12f721c43b6114542e12b1d9, type: 3}
+  m_Name: Fight_Danger
+  m_EditorClassIdentifier: 
+  Clips:
+  - {fileID: 8300000, guid: 830d0fb19c250574380140ff9df22dd7, type: 3}
+  - {fileID: 8300000, guid: 6c17ce3b385be454bac92fea9b3b198e, type: 3}
+  - {fileID: 8300000, guid: 3e81dcde426c1454390931324edd82c0, type: 3}
+  - {fileID: 8300000, guid: 5c173bbb7c5ae364897429a1ef412267, type: 3}
+  Volume_min: 0.1
+  Volume_max: 0.1
+  Pitch_min: 1
+  Pitch_max: 1

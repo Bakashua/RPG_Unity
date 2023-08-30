@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5afd26dc12f721c43b6114542e12b1d9, type: 3}
+  m_Name: SO_SE_GainDef
+  m_EditorClassIdentifier: 
+  Clips:
+  - {fileID: 8300000, guid: cc04d7e3d14ea9a47906e2e8ac35e1cc, type: 3}
+  - {fileID: 8300000, guid: d887f7769a5498440b5c4ad9a60bbf90, type: 3}
+  - {fileID: 8300000, guid: 313f1e0ed6ef4f04d9bcf9996eb84630, type: 3}
+  - {fileID: 8300000, guid: 43e665ddb6f9a0142ad656d4895be0da, type: 3}
+  Volume_min: 0.9
+  Volume_max: 1.1
+  Pitch_min: 0.9
+  Pitch_max: 1.1

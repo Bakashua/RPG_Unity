@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa1cd84e4ee8b534c92dfe2fac8f5689, type: 3}
+  m_Name: H_01_Billy
+  m_EditorClassIdentifier: 
+  Stats: {fileID: 11400000, guid: 15c663bfc5d80314ba16f1e18709809b, type: 2}
+  SpellList: {fileID: 11400000, guid: e02842fe0475cb64e9c0d72c86d538cd, type: 2}
+  leveling: {fileID: 11400000, guid: 7a98e8f89e76d164f87af182e21c44be, type: 2}
+  BarkData: {fileID: 11400000, guid: 0acab1fdcb14a134f95b361a31d2b8ba, type: 2}
