@@ -12,6 +12,7 @@ using UnityEngine;
 public class XpManager : MonoBehaviour
 {
     [HideInInspector] public static XpManager instance_XPM;
+    public Hero_Party hero_Party;
     private BattleStateMachine BSM;
     public float xpGain;
 
@@ -34,7 +35,6 @@ public class XpManager : MonoBehaviour
     // ici on incremente l xp qu on donne au hero
     public void XpReceived(float xp)
     {
-        //Debug.Log("compute on death monster xp");
         xpGain = xpGain + xp;
         //Debug.Log("xp from battle = " + xp);
         Debug.Log("xp add = " + xpGain);
@@ -42,16 +42,15 @@ public class XpManager : MonoBehaviour
 
 
     // ici on donne l xp a la fin du combat
-    //public void XpEndBattle(float xpFinal)
     public void XpEndBattle()
     {
-        foreach (GameObject heroes in BSM.herosInBattle)
+        foreach (Chara_Hero chara in hero_Party.HeroInParty_Data)
         {
             // multiplier = get all bonus for xp ibjectives
             //add the multiplier to xp final
             //heroes.GetComponent<HeroStateMachine>().hero.ReceiveXp(xpFinal);
-            //xpGain = 0;
-            heroes.GetComponent<HeroStateMachine>().hero.general_Setting.CharaHero.leveling.ReceiveXp(xpGain);
+
+            chara.leveling.ReceiveXp(xpGain);
             //Debug.Log("xp from battle = " + xpGain);
         }
     }

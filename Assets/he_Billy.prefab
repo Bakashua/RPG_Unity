@@ -181,8 +181,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 46965f9cbaf525742a6da4c2172a99cd, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 0.5
-  m_FrequencyGain: 0.2
+  m_AmplitudeGain: 1
+  m_FrequencyGain: 0.25
   mNoiseOffsets: {x: 950.0635, y: -616.8926, z: -820.24646}
 --- !u!1 &69525835837155670
 GameObject:
@@ -1187,6 +1187,7 @@ MonoBehaviour:
   Text_Break: {fileID: 904662820145583817, guid: 2a986cf42e1e0364184704c9604ec777,
     type: 3}
   VFX: {fileID: 11400000, guid: 3c929908335671c4aac4058c70662ae0, type: 2}
+  VFX_BreakLoop: {fileID: 0}
   slowMotionTimeScale: 0.1
   transitionDuration: 0.5
 --- !u!114 &4774978511365733653

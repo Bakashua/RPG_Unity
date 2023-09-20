@@ -22,20 +22,20 @@ MonoBehaviour:
     Icon: {fileID: 21300000, guid: b9b64ef356cfcc14080b886a5e23877e, type: 3}
   life_Stats:
     baseHP: 100
-    currentHP: 100
+    currentHP: 0
     baseMP: 1000
-    currentMP: 1000
+    currentMP: 950
     baseTP: 200
-    currentTP: 6
+    currentTP: 3
     baseShield: 0
     KeepShield: 0
     currentShield: 0
     baseBlnd: 0
-    currentBlnd: 0
+    currentBlnd: -1
     postureCurr: 1
     postureMax: 1000000
   Battle_Stats:
-    baseAtk: 10
+    baseAtk: 100
     currentAtk: 10
     baseDef: 10
     currentDef: 10

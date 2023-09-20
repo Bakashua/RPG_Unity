@@ -47,7 +47,7 @@ public class UI_Combat_Timeline : MonoBehaviour
 
     public IEnumerator UpdateIconPos()
     {
-        while (true)
+        if (BattleStateMachine.instance_BSM.enemyInBattle.Count > 0 || BattleStateMachine.instance_BSM.herosInBattle.Count > 0)
         {
 
             for (int i = 0; i < icons.Count; i++)
@@ -56,35 +56,51 @@ public class UI_Combat_Timeline : MonoBehaviour
 
                 if (icons[i].IsHero)
                 {
-                    currentCooldown = icons[i].HSM.curentCooldown;
-                    maxCooldown = icons[i].HSM.maxCooldown;
+                    if (icons[i].HSM.currentState == HeroStateMachine.TurnState.DEAD)
+                    {
+                        icons[i].gameObject.SetActive(false);
+                        icons.Remove(icons[i]);
+                        break;
+                    }
+                    else
+                    {
+                        currentCooldown = icons[i].HSM.curentCooldown;
+                        maxCooldown = icons[i].HSM.maxCooldown;
+                    }
                 }
                 if (!icons[i].IsHero)
                 {
-                    currentCooldown = icons[i].ESM.curentCooldown;
-                    maxCooldown = icons[i].ESM.maxCooldown;
+                    if (icons[i].ESM.currentState == EnemyStateMachine.TurnState.DEAD)
+                    {
+                        icons[i].gameObject.SetActive(false);
+                        icons.Remove(icons[i]);
+                        break;
+                    }
+                    else
+                    {
+                        currentCooldown = icons[i].ESM.curentCooldown;
+                        maxCooldown = icons[i].ESM.maxCooldown;
+                    }
                 }
 
 
                 float normalizedCooldown = Mathf.InverseLerp(0, maxCooldown, currentCooldown);
 
                 Slider slider = GetComponentInChildren<Slider>();
-                //float iconPosition = Mathf.Lerp(slider.minValue, slider.maxValue, normalizedCooldown);
+
                 float iconPosition = Mathf.Lerp(-300f, 300f, normalizedCooldown);
 
-                //// Smooth the transition using an easing function (e.g., using SmoothStep)
-                //float smoothedNormalizedCooldown = Mathf.SmoothStep(-300f, 300f, normalizedCooldown);
-                //float iconPosition = Mathf.Lerp(slider.minValue, slider.maxValue, smoothedNormalizedCooldown);
 
-                //icons[i].transform.localPosition.x = new Vector3(iconPosition, 0f, 0f);
-                //icons[i].transform.localPosition.x = Mathf.Lerp(icon[i].transform.localPosition.x, iconPosition, 1f);
                 icons[i].transform.DOLocalMoveX(iconPosition, normalizedCooldown, false);
 
             }
 
             yield return new WaitForSeconds(0.1f);
-            //StartCoroutine(UpdateIconPos());
+
+            StartCoroutine(UpdateIconPos());
         }
+
+        
 
     }
 }

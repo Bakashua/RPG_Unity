@@ -63,6 +63,7 @@ public class EnemyStateMachine : MonoBehaviour
 
 
     #endregion
+
     private void Awake()
     {
         SEM = gameObject.GetComponent<Status_Effect_Manager>();
@@ -146,6 +147,7 @@ public class EnemyStateMachine : MonoBehaviour
                 {
                     StartCoroutine(TimeForAction());
                     SEM.ApplyStatusEffect(StatusState.Onendturn);
+                    curentCooldown = 0;
                 }
                 //else { condition = true; Debug.Log("condition = " + condition); }
                 break;
@@ -154,44 +156,9 @@ public class EnemyStateMachine : MonoBehaviour
             // check when is dead
             case (TurnState.DEAD):
                 {
-                    //
-                    SEM.ApplyStatusEffect(StatusState.OnLeaveEffect);
-                    //
-                    gameObject.tag = "DeadEnemy";
-                    BSM.enemyInBattle.Remove(gameObject);
-                    BSM.enemyToDestroy.Add(gameObject);
-                    selector.SetActive(false);
-                    //curentCooldown = 0;
-                    //StopCoroutine(UpgradeProgressBarEnemy());
-
-                    // Send xp to Xp Manager
-                    //xpManager.XpEndBattle(enemy.exp); !!! ICI POUR L'XP A METTRE DANS UN SCRIPT A PART !!! Event Gain XP et un SO qui stock l'xp qu'on donne ?
 
 
-                    // debug, on empecher d atk un personnage mort / remove de la liste des actions qd meurt
-                    if (BSM.enemyInBattle.Count > 0)
-                    {
-                        for (int i = 0; i < BSM.performList.Count; i++)
-                        //foreach (var item in BSM.performList)
-                        {
-                            {
-                                //if (item.attackerGameObject == gameObject)
-                                if (BSM.performList[i].attackerGameObject == gameObject)
-                                {
-                                    BSM.performList.Remove(BSM.performList[i]);
-                                }
-                                else if (BSM.performList[i].attackerTarget == gameObject)
-                                {
-                                    BSM.performList[i].attackerTarget = BSM.enemyInBattle[Random.Range(0, BSM.enemyInBattle.Count)];
-                                }
-                            }
-                        }
-                    }
 
-                    // change color / play dead animation
-                    //gameObject.GetComponent<MeshRenderer>().material.color = new Color32(105, 105, 105, 255);
-                    //mesh.material.color = new Color32(105, 105, 105, 255);
-                    //alive = false;
                     //reset enemy buttons
                     BSM.battleState = BattleStateMachine.PerformAction.CHECKALIVE;
                 }
@@ -227,7 +194,7 @@ public class EnemyStateMachine : MonoBehaviour
         {
             if (!StopATB)
             {
-            StartCoroutine(UpgradeProgressBarEnemy());
+                StartCoroutine(UpgradeProgressBarEnemy());
             }
         }
         isCoroutineRunning = false;
@@ -264,30 +231,33 @@ public class EnemyStateMachine : MonoBehaviour
         heroToAttack = En_Action.attackerTarget;
     }
 
-    // we sed the previously created action to the bsm in order to proced turn
+    // we send the previously created action to the bsm in order to proced turn
     void ChooseAction()
     {
-        IA_Brain brain = GetComponent<IA_Brain>();
-
-        #region old brain
-        //// we use handle turn to store all date we need on this character action
-        //HandleTurn myAttack = new HandleTurn();
-        //myAttack.attacker = enemy.CharaName;
-        //myAttack.type = "Enemy";
-        //myAttack.attackerGameObject = gameObject;
-        //myAttack.attackerTarget = BSM.herosInBattle[Random.Range(0, BSM.herosInBattle.Count)]; // ICI coef d'aggro des joueurs
-        //// here we choose the attack the ennemy will use //its here we should imput IA logic?
-        //int num = Random.Range(0, enemy.attacks.Count);
-        //myAttack.choosenAttack = enemy.attacks[num];
-        #endregion
-
-        if (UsingBrain)
+        if (gameObject.tag != "DeadEnemy")
         {
-            BSM.CollectAction(En_Action);
-            /// here old version of the choose target + spell
-            //BSM.CollectAction(brain.Do_Action(enemy));
-            //Intent_System.ShowIntent(brain.myAttack.choosenAttack.attackType.ToString());
-            //heroToAttack = brain.myAttack.attackerTarget;
+
+            IA_Brain brain = GetComponent<IA_Brain>();
+
+            #region old brain
+            //// we use handle turn to store all date we need on this character action
+            //HandleTurn myAttack = new HandleTurn();
+            //myAttack.attacker = enemy.CharaName;
+            //myAttack.type = "Enemy";
+            //myAttack.attackerGameObject = gameObject;
+            //myAttack.attackerTarget = BSM.herosInBattle[Random.Range(0, BSM.herosInBattle.Count)]; // ICI coef d'aggro des joueurs
+            //// here we choose the attack the ennemy will use //its here we should imput IA logic?
+            //int num = Random.Range(0, enemy.attacks.Count);
+            //myAttack.choosenAttack = enemy.attacks[num];
+            #endregion
+            if (UsingBrain)
+            {
+                BSM.CollectAction(En_Action);
+                /// here old version of the choose target + spell
+                //BSM.CollectAction(brain.Do_Action(enemy));
+                //Intent_System.ShowIntent(brain.myAttack.choosenAttack.attackType.ToString());
+                //heroToAttack = brain.myAttack.attackerTarget;
+            }
         }
     }
 
@@ -355,18 +325,18 @@ public class EnemyStateMachine : MonoBehaviour
                 HeroStateMachine hsm = target.GetComponent<HeroStateMachine>();
                 if (hsm.curentCooldown >= hsm.maxCooldown * 0.65 && hsm.curentCooldown <= hsm.maxCooldown * 0.90 && atk.BaseAttackdata.elementMultiplicateur > 1)
                 {
-                hsm.hero.life_Stats.postureCurr = target.GetComponent<Posture_Manager>().TakeHit(1000, breakDamage);
+                    hsm.hero.life_Stats.postureCurr = target.GetComponent<Posture_Manager>().TakeHit(1000, breakDamage);
                 }
                 else
                 {
-                hsm.hero.life_Stats.postureCurr = target.GetComponent<Posture_Manager>().TakeHit(0, breakDamage);
+                    hsm.hero.life_Stats.postureCurr = target.GetComponent<Posture_Manager>().TakeHit(0, breakDamage);
                 }
 
             }
             else if (target.tag == "Enemy")
             {
                 EnemyStateMachine esm = target.GetComponent<EnemyStateMachine>();
-                if (esm.curentCooldown >= esm.maxCooldown * 0.65 && esm.curentCooldown <= esm.maxCooldown * 0.90  && atk.BaseAttackdata.elementMultiplicateur > 1)
+                if (esm.curentCooldown >= esm.maxCooldown * 0.65 && esm.curentCooldown <= esm.maxCooldown * 0.90 && atk.BaseAttackdata.elementMultiplicateur > 1)
                 {
                     esm.enemy.life_Stats.postureCurr = target.GetComponent<Posture_Manager>().TakeHit(1000, breakDamage);
                 }
@@ -418,13 +388,7 @@ public class EnemyStateMachine : MonoBehaviour
                     //alive = false;
                     enemy.life_Stats.currentHP = 0;
 
-                    // gain xp player
-                    //XpManager.instance_XPM.xpGain += enemy.IA.reward.xpReceived;
-                    //foreach (GameObject hero in BSM.herosInBattle)
-                    //{
-                    //    Debug.Log(hero.GetComponent<XpManager>());
-                    //    //hero.GetComponent<XpManager>().xpGain += enemy.reward.xpReceived;
-                    //}
+                    SendXpToPlayer();
                     StartCoroutine(IsDead());
                 }
                 //Debug.Log(enemy.general_Setting.CharaName + " ____________ hp = " + enemy.life_Stats.currentHP);
@@ -494,8 +458,39 @@ public class EnemyStateMachine : MonoBehaviour
 
     #endregion
 
+
+    #region End Turn
     IEnumerator IsDead()
     {
+        //
+        SEM.ApplyStatusEffect(StatusState.OnLeaveEffect);
+        //
+        gameObject.tag = "DeadEnemy";
+        BSM.enemyInBattle.Remove(gameObject);
+        BSM.enemyToDestroy.Add(gameObject);
+        selector.SetActive(false);
+
+        // debug, on empecher d atk un personnage mort / remove de la liste des actions qd meurt
+        if (BSM.enemyInBattle.Count > 0)
+        {
+            for (int i = 0; i < BSM.performList.Count; i++)
+            {
+                {
+                    //if (item.attackerGameObject == gameObject)
+                    if (BSM.performList[i].attackerGameObject == gameObject)
+                    {
+                        BSM.performList.Remove(BSM.performList[i]);
+                    }
+                    else if (BSM.performList[i].attackerTarget == gameObject)
+                    {
+                        BSM.performList[i].attackerTarget = BSM.enemyInBattle[Random.Range(0, BSM.enemyInBattle.Count)];
+                    }
+                }
+            }
+        }
+
+        // ==================
+
         //    Debug.Log("0000000");
         //    Debug.Log(GetComponent<Transform>().position);
         SFX_Dead.Target = this.GetComponent<Transform>();
@@ -510,6 +505,14 @@ public class EnemyStateMachine : MonoBehaviour
         //alive = false;
         En_STATEMACHINE();
     }
+
+    void SendXpToPlayer()
+    {
+        // gain xp player
+        xpManager.xpGain += enemy.IA.reward.xpReceived;
+    }
+
+    #endregion
 
     #region Character Anim on attack
 
@@ -552,6 +555,8 @@ public class EnemyStateMachine : MonoBehaviour
 
     #endregion
 
+
+    #region Manage Time
     public void StopCoroutine()
     {
         StopAllCoroutines();
@@ -582,39 +587,6 @@ public class EnemyStateMachine : MonoBehaviour
             Time.fixedDeltaTime = 1 * 0.02f; // Reset fixed delta time
         }
     }
+    #endregion
 
 }
-
-//public void DoDamage(float breakDamage, string usedOn)
-//{
-//    BaseAttack atk = BSM.performList[0].choosenAttack;
-//    //StartCoroutine(BSM.performList[0].choosenAttack.ResetTargetTiles());
-
-//    // do damage to ennemy hp
-//    foreach (GameObject target in BSM.performList[0].choosenAttack.targetInAOE)
-//    {
-
-//        if (target.tag == "Hero")
-//        {
-//            Chara_BaseStats stats = target.GetComponent<HeroStateMachine>().hero;
-//            target.GetComponent<HeroStateMachine>().TakeDamage(atk.DamageDealt(enemy, stats), usedOn);
-//        }
-//        else if (target.tag == "Enemy")
-//        {
-//            Chara_BaseStats stats = target.GetComponent<EnemyStateMachine>().enemy;
-//            target.GetComponent<EnemyStateMachine>().TakeDamage(atk.DamageDealt(enemy, stats), usedOn);
-//        }
-//    }
-
-//    // do damage to ennemy posture        
-//    foreach (GameObject target in BSM.performList[0].choosenAttack.targetInAOE)
-//    {
-//        if (target.tag == "Hero")
-//        {
-//            target.GetComponent<HeroStateMachine>().hero.life_Stats.postureCurr = target.GetComponent<Posture_Manager>().TakeHit(breakDamage);
-//        }
-//        else if (target.tag == "Enemy")
-//        {
-//            target.GetComponent<EnemyStateMachine>().enemy.life_Stats.postureCurr = target.GetComponent<Posture_Manager>().TakeHit(breakDamage);
-//        }
-//    }

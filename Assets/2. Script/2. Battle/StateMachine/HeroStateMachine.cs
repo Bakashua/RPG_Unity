@@ -133,6 +133,7 @@ public class HeroStateMachine : MonoBehaviour
 
                 StartCoroutine(TimeForAction());
                 SEM.ApplyStatusEffect(StatusState.Onendturn);
+                curentCooldown = Random.Range(0, maxCooldown / 1000);
                 Event_EndTurn.TriggerEvent();
                 break;
 
@@ -197,7 +198,7 @@ public class HeroStateMachine : MonoBehaviour
                 else if (posture_Manager.postureState != Posture_Manager.PostureState.BREAK) //&& BSM.herosToManage[0] == gameObject)
                 {
                     currentState = TurnState.ADDTOLIST;
-                    curentCooldown = Random.Range(0, maxCooldown / 1000); // + hero.Battle_Stats.currentSpeed / 10;
+                    //curentCooldown = Random.Range(0, maxCooldown / 1000); // + hero.Battle_Stats.currentSpeed / 10;
                     //curentCooldown = 0;
                     STATEMACHINE();
                     //Debug.Log("State Machine = choose action");

@@ -24,15 +24,8 @@ public class BattleStateMachine : MonoBehaviour
     //[HideInInspector] public static BattleStateMachine instance_BSM;
     private Battle_GUI_Manager battleGUIManager;
     private BattleCamManager battleCamManager;
-    private XpManager xpManager;
+    //private XpManager xpManager;
 
-    [Header("DELEGATE")]
-    private string deleteme;
-    //public delegate void WinBattle();
-    //public event WinBattle winBattle;
-    //public UnityEvent winBattle;
-    //public delegate void LooseBattle();
-    //public event LooseBattle looseBattle;
 
 
     public enum PerformAction
@@ -41,7 +34,7 @@ public class BattleStateMachine : MonoBehaviour
 
     [Space(20)]
     public PerformAction battleState;
-    public HeroGUI heroInput;
+    //public HeroGUI heroInput;
 
     [Header("Taking Action")]
     public List<HandleTurn> performList = new List<HandleTurn>();
@@ -79,14 +72,9 @@ public class BattleStateMachine : MonoBehaviour
         // auto setting
         battleGUIManager = Battle_GUI_Manager.instance_BUIM;
         battleCamManager = BattleCamManager.instance_BCam;
-        xpManager = XpManager.instance_XPM;
+        //xpManager = XpManager.instance_XPM;
 
         battleState = PerformAction.WAITING;
-
-        // SET UP UI
-        battleGUIManager.StartBatlleGUI();
-        heroInput = HeroGUI.ACTIVATE;
-
     }
 
     public void SetUpList()
@@ -234,17 +222,15 @@ public class BattleStateMachine : MonoBehaviour
                     if (herosInBattle.Count < 1)
                     {
                         battleState = PerformAction.LOSE;
-                        // lose battle
                     }
                     else if (enemyInBattle.Count < 1)
                     {
                         battleState = PerformAction.WIN;
-                        // win battle
                     }
                     else
                     {
-                        //ClearAttackPanel();
-                        heroInput = HeroGUI.ACTIVATE;
+                        battleState = PerformAction.WAITING;
+                        //heroInput = HeroGUI.ACTIVATE;
                     }
                     break;
 
@@ -255,10 +241,12 @@ public class BattleStateMachine : MonoBehaviour
                         {
                             herosInBattle[i].GetComponent<HeroStateMachine>().currentState = HeroStateMachine.TurnState.WAITING;
                             herosInBattle[i].GetComponent<HeroStateMachine>().playerTurn.heroInput = UI_PlayerTurn.HeroGUI.DONE;
+                            herosInBattle[i].GetComponent<HeroStateMachine>().playerTurn.DesactivateSpellBtn();
+                            herosInBattle[i].GetComponent<HeroStateMachine>().playerCam.Desactivate_cam();
                             herosInBattle[i].GetComponent<HeroStateMachine>().battleIsOver = true;
                         }
 
-                        StartCoroutine(ClearAllBattle());
+                        StartCoroutine(ClearAllBattle(true));
                         //Invoke("ClearAllBattle", 0.5f);
                         battleState = PerformAction.WAITING;
                         //ClearAllBattle();
@@ -276,7 +264,7 @@ public class BattleStateMachine : MonoBehaviour
                         //looseBattle();
                         //battleCamManager.ActivateWinBattleCam();
 
-                        foreach (GameObject enemyGODestroy in enemyToDestroy)
+                        foreach (GameObject enemyGODestroy in enemyInBattle)
                         {
                             //Destroy(enemyGODestroy);
                             enemyGODestroy.SetActive(false);
@@ -287,6 +275,8 @@ public class BattleStateMachine : MonoBehaviour
                             heroInBattle.SetActive(false);
                         }
                         battleState = PerformAction.PERFORMACTION;
+
+                        StartCoroutine(ClearAllBattle(false));
                     }
                     break;
 
@@ -361,20 +351,23 @@ public class BattleStateMachine : MonoBehaviour
     }
 
 
-    IEnumerator ClearAllBattle()
+    IEnumerator ClearAllBattle(bool win)
     {
-        //Debug.Log("win battle");
+        Listener_StopAllProgressBar();
+
+        if (win)
+        {
         onBattleWin.TriggerEvent();
-        //Call Win GUI
-        //battleCamManager.ActivateWinBattleCam();
+        }
+
 
         // Clean Battle Field
         foreach (GameObject enemyGODestroy in enemyToDestroy)
         {
             // + on donne xp au manager
-
             //Destroy(enemyGODestroy);
             enemyGODestroy.SetActive(false);
+            //enemyInBattle.Remove(enemyGODestroy);
             //enemyInBattle.Clear();
         }
         yield return new WaitForSeconds(3f);
@@ -382,135 +375,15 @@ public class BattleStateMachine : MonoBehaviour
         foreach (GameObject heroInBattle in herosInBattle)
         {
             //Destroy(heroInBattle);
-            //heroInBattle.SetActive(false);
-            //herosInBattle.Clear();
+            heroInBattle.SetActive(false);
+            //herosInBattle.Remove(heroInBattle);
         }
-        //battleState = PerformAction.PERFORMACTION;
+        enemyInBattle.Clear();
+        herosInBattle.Clear();
 
         // Give xp
-        xpManager.XpEndBattle(); UpdateStateMachine();
+        //xpManager.XpEndBattle(); UpdateStateMachine();
     }
     #endregion
 }
 
-
-
-//public void BSM_STATE()
-//{
-
-//switch (battleState)
-//{
-//    case (PerformAction.WAITING):
-//        if (performList.Count > 0)
-//        {
-//            battleState = PerformAction.TAKEACTION;
-//        }
-//        break;
-
-
-//    case (PerformAction.TAKEACTION):
-//        {
-//            GameObject performer = performList[0].attackerGameObject;
-
-
-//            Debug.Log(performer);
-//            if (performList[0].type == "Enemy")
-//            {
-//                EnemyStateMachine ESM = performer.GetComponent<EnemyStateMachine>();
-//                for (int i = 0; i < herosInBattle.Count; i++)
-//                {
-//                    if (performList[0].attackerTarget == herosInBattle[i])
-//                    {
-//                        ESM.heroToAttack = performList[0].attackerTarget;
-//                        ESM.currentState = EnemyStateMachine.TurnState.ACTION;
-//                    }
-//                    else
-//                    {
-//                        performList[0].attackerTarget = herosInBattle[Random.Range(0, herosInBattle.Count)];
-//                        ESM.heroToAttack = performList[0].attackerTarget;
-//                        ESM.currentState = EnemyStateMachine.TurnState.ACTION;
-//                        break;
-//                    }
-//                }
-//            }
-//            if (performList[0].type == "Hero")
-//            {
-//                HeroStateMachine HSM = performer.GetComponent<HeroStateMachine>();
-//                HSM.enemyToAttack = performList[0].attackerTarget;
-//                HSM.currentState = HeroStateMachine.TurnState.ACTION;
-//            }
-//            battleState = PerformAction.PERFORMACTION;
-//            break;
-//        }
-
-
-//    case (PerformAction.PERFORMACTION):
-
-//        break;
-
-
-//    case (PerformAction.CHECKALIVE):
-//        if (herosInBattle.Count < 1)
-//        {
-//            battleState = PerformAction.LOSE;
-//            // lose battle
-//        }
-//        else if (enemyInBattle.Count < 1)
-//        {
-//            battleState = PerformAction.WIN;
-//            // win battle
-//        }
-//        else
-//        {
-//            //ClearAttackPanel();
-//            heroInput = HeroGUI.ACTIVATE;
-//        }
-//        break;
-
-//    case (PerformAction.WIN):
-//        for (int i = 0; i < herosInBattle.Count; i++)
-//        {
-//            herosInBattle[i].GetComponent<HeroStateMachine>().currentState = HeroStateMachine.TurnState.WAITING;
-//        }
-
-//        //Call Win GUI
-//        onBattleWin.TriggerEvent();
-//        //battleCamManager.ActivateWinBattleCam();
-
-//        // Give xp
-//        xpManager.XpEndBattle(xpManager.xpGain);
-
-//        // Clean Battle Field
-//        foreach (GameObject enemyGODestroy in enemyToDestroy)
-//        {
-//            Destroy(enemyGODestroy);
-//        }
-//        foreach (GameObject heroInBattle in herosInBattle)
-//        {
-//            // Destroy(heroInBattle);
-//        }
-//        break;
-
-//    case (PerformAction.LOSE):
-//        {
-//            //Call Lose GUI
-//            //battleGUIManager.BattleIsLost();
-//            onBattleLoose.TriggerEvent();
-//            looseBattle();
-//            //battleCamManager.ActivateWinBattleCam();
-
-//            foreach (GameObject enemyGODestroy in enemyToDestroy)
-//            {
-//                Destroy(enemyGODestroy);
-//            }
-//            foreach (GameObject heroInBattle in herosInBattle)
-//            {
-//                Destroy(heroInBattle);
-//            }
-//        }
-//        break;
-
-
-//}
-
-//}

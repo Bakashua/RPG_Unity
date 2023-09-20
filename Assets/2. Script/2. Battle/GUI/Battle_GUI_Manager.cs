@@ -125,10 +125,6 @@ public class Battle_GUI_Manager : MonoBehaviour
         ScriptableObject.CreateInstance("UI_SO_DamagePopUp");
     }
 
-    public void StartBatlleGUI()
-    {
-    }
-
     public void CreateTargetButtons(TargetType targetType)
     {
         // CHANGE // SET CAMERA TO SELECT A TARGET
@@ -191,25 +187,7 @@ public class Battle_GUI_Manager : MonoBehaviour
         }
         //for(i = 0, i < enemyList.Count, i++)
     }
-
-    //void SetUpNavigation_Enemy()
-    //{
-    //    foreach (Button enemy in enemyList)
-    //    {
-    //        // get the Navigation data
-    //        Navigation navigation = enemy.navigation;            
-    //        // switch mode to Explicit to allow for custom assigned behavior
-    //        navigation.mode = Navigation.Mode.Explicit;
-    //        // highlight the Save button if the left arrow key is pressed
-    //        int i = enemyList.IndexOf(enemy);
-    //        navigation.selectOnLeft = enemyList[i + 1];
-    //        navigation.selectOnRight = enemyList[enemyList.Count];
-    //        //navigation.selectOnRight = alliesList[alliesList.Count];
-    //        // reassign the struct data to the button
-    //        enemy.navigation = navigation;
-    //    }
-    //}
-
+     
     public void ClearSelectList()
     {
         atk_info_Box.SetActive(false);
@@ -488,6 +466,7 @@ public class Battle_GUI_Manager : MonoBehaviour
         Win_Screen.SetActive(false);
         Win_HeroParty.SetActive(true);
         //Debug.Log("exppoint showed");
+        XpManager.instance_XPM.XpEndBattle();
 
         foreach (Chara_Hero chara in hero_Party.HeroInParty_Data)
         {
@@ -500,7 +479,9 @@ public class Battle_GUI_Manager : MonoBehaviour
             data.SetUpText(chara.leveling);
             data.MoveSlider(chara.leveling);
 
+
         }
+
     }
 
     public void _ShowItem()
@@ -537,7 +518,7 @@ public class Battle_GUI_Manager : MonoBehaviour
 
 
 
-//set up Navigation
+//set up Navigation new input system
 // // get the Navigation data
 // Navigation navigation = newButton1.GetComponent<Button>().navigation;
 // // switch mode to Explicit to allow for custom assigned behavior

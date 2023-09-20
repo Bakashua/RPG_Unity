@@ -227,14 +227,14 @@ public class HeroPanelStat : MonoBehaviour
         //Debug.Log(t + "  ____  " + t1);
         //t.Pause();
         //t1.Pause();
-        if (BattleStateMachine.instance_BSM.herosToManage[0].GetComponent<HeroStateMachine>().hero.name == hero.name)
-        {
-            //Debug.Log(BattleStateMachine.instance_BSM.herosToManage[0].GetComponent<HeroStateMachine>().hero.name + "  __________  " + hero.name);
-            t.Kill();
-            t1.Kill();
-            //t.SetAutoKill(true);
-            //t1.SetAutoKill(true);
-        }
+        //if (BattleStateMachine.instance_BSM.herosToManage[0].GetComponent<HeroStateMachine>().hero.name == hero.name)
+        //{
+        //    //Debug.Log(BattleStateMachine.instance_BSM.herosToManage[0].GetComponent<HeroStateMachine>().hero.name + "  __________  " + hero.name);
+        //    t.Kill();
+        //    t1.Kill();
+        //    //t.SetAutoKill(true);
+        //    //t1.SetAutoKill(true);
+        //}
     }
 
 }

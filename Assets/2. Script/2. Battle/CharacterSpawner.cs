@@ -23,13 +23,13 @@ public class CharacterSpawner : MonoBehaviour
     public int initialMonsterSpawn_max;
     public int maximumOfMonster = 3;
 
-    
+
     //public GameObject[] hero;
-    
+
 
     [Header("SPAWN POINT")]
-    public List<Transform> monsterSpawnPoint;   
-    public List<Transform> heroSpawnPoint;   
+    public List<Transform> monsterSpawnPoint;
+    public List<Transform> heroSpawnPoint;
     private List<GameObject> instanciatedMonster;
     //private List<GameObject> instanciatedHero;
     private int numberOfMonster;
@@ -87,11 +87,16 @@ public class CharacterSpawner : MonoBehaviour
         GameObject newChunkPrefab = RandomMonster();
         newChunkPrefab.GetComponent<EnemyStateMachine>().enemy = RandomMonsterStats();
         newChunkPrefab.GetComponent<Combat_Movement>().LDM = LDM;
-        
+
 
         // Compute random number for monster spawnpoint OR monster have preference spawn point / random spawn
         int randomSpawnPoint = Random.Range(0, monsterSpawnPoint.Count);
-        
+
+        if (monsterSpawnPoint[randomSpawnPoint].gameObject.GetComponent<Combat_Tiles>().currentHolder != null)
+        {
+            randomSpawnPoint = randomSpawnPoint + 1;
+        }
+
         newMonster = Instantiate(newChunkPrefab, monsterSpawnPoint[randomSpawnPoint].position, Quaternion.identity, transform);
         newMonster.transform.parent = Parent.transform;
         instanciatedMonster.Add(newMonster);

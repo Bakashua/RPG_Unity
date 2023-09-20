@@ -10,10 +10,12 @@ public class Chara_Leveling : ScriptableObject
 {
 
     [Header("GENERAL SETTING")]
-    public float requiredXP;
     public float currentXP;
-    public int currentLV;
     public float xpReceived;
+    public float previousXp;
+
+    public float requiredXP;
+    public int currentLV;
 
     [Header("COMPUTE XP SETTING")]
     public float Base = 20;
@@ -33,19 +35,10 @@ public class Chara_Leveling : ScriptableObject
     //public float accelerationA;
     //public float accelerationB;
 
-    //[Header("GENERAL SETTING")]
-    //public int favoritePosition;
-
-    void awake()
-    {
-        //create a random favorite position for the hero
-        //L'important dans la vie, c'est l'amour et l'amitié 
-        //int i = Random.Range(1, 10);
-        //favoritePosition = i;
-    }
 
     public void ReceiveXp(float xpGain)
     {
+        previousXp = currentXP;
         xpReceived = xpGain;
         currentXP = currentXP + xpGain;
 
@@ -55,15 +48,22 @@ public class Chara_Leveling : ScriptableObject
         if (currentXP >= requiredXP)
         {
             LevelUp();
-            currentXP = 0;
 
             // Debug.Log("current level is " + currentLV);
         }
     }
     public void LevelUp()
     {
-        //if (currentXP >= requiredXP)
-        currentLV += 1;
+        // SET UP CURR XP 
+
+        if (currentXP >= requiredXP)
+        {
+            currentXP = currentXP - requiredXP;
+        }
+
+
+
+            currentLV += 1;
         //Debug.Log("current level is " + currentLV);
 
         requiredXP = ((Base * currentLV) * Acc1) + (Flat);

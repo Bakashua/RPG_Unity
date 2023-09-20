@@ -42,9 +42,9 @@ public class GUI_Win_Hero_Panel : MonoBehaviour
         Text_Level.text = xp.currentLV.ToString();
 
         Text_XpGain.text = "+ " + xp.xpReceived.ToString() + " Exp !";
+
         // ici on update le text qui servira a mettre current/required 
         // a finir plus tard, bisous
-        //StartCoroutine(UpdateTextCoroutine(Text_XpCurrent.text, xp.currentXP, xp.currentXP, 1f));
 
         Text_Xp.text = xp.currentXP.ToString()            
             + " / " + xp.requiredXP.ToString();
@@ -53,65 +53,48 @@ public class GUI_Win_Hero_Panel : MonoBehaviour
 
     public void MoveSlider(Chara_Leveling xp)
     {
-        //Xp_transition.maxValue = xp.requiredXP;
-        //Xp_Slider.maxValue = xp.requiredXP;
-
-        // faire avec xp du core
-        //Core_transition.maxValue = xp.requiredXP;
 
         StartCoroutine(SliderXpMove(xp));
     }
 
 
+    public void UpdateXpReceived(float xpGain, float previousxp, float nextxp)
+    {
+        Text_XpGain.text = "+ " + xpGain.ToString() + " Exp !";
 
+        StartCoroutine(UpdateTextCoroutine(Text_XpCurrent.text, previousxp, nextxp, 3f));
+    }
 
     IEnumerator SliderXpMove(Chara_Leveling xp)
     {
-        ////Xp_Slider.maxValue = xp.requiredXP;
-
-        ////Xp_Slider.value = xp.currentXP;
-        ////StartCoroutine(LerpSlider(Xp_transition, xp.currentXP));
         yield return new WaitForSeconds(0.1f);
         Xp_transition.value = xp.currentXP / xp.requiredXP;
         yield return new WaitForSeconds(0.5f);
         Xp_Slider.value = xp.currentXP / xp.requiredXP;
-        //float end = Xp_Slider.value + xp.currentXP;
-        //StartCoroutine(LerpSlider(Xp_Slider, previeousXp, end));
-
-        //Xp_Slider.value = xp.currentXP;
 
         ////faire avec xp du core
-        ////Core_Slider.value = xp.currentXP;
-        ////StartCoroutine(LerpSlider(Core_transition, xp.currentXP));
         yield return new WaitForSeconds(0.1f);
         Core_transition.value = xp.currentXP / xp.requiredXP;
         yield return new WaitForSeconds(0.5f);
         Core_Slider.value = xp.currentXP / xp.requiredXP;
-        //Core_Slider.maxValue = xp.requiredXP;
-        //float end2 = Core_Slider.value + xp.currentXP;
-        //StartCoroutine(LerpSlider(Core_Slider, previeousXp, end2));
-        ////Core_Slider.value = xp.currentXP;
     }
 
 
-    IEnumerator LerpSlider(Slider slider, float from, float to)
-    {
-        while (true)
-        {
-            // Lerp the slider value towards the maximum value
-            float lerpValue = Mathf.Lerp(from, to, Time.deltaTime * 2f);
+    //IEnumerator LerpSlider(Slider slider, float from, float to)
+    //{
+    //    while (true)
+    //    {
+    //        // Lerp the slider value towards the maximum value
+    //        float lerpValue = Mathf.Lerp(from, to, Time.deltaTime * 2f);
 
-            // Set the value of the slider to the lerp value
-            slider.value = lerpValue;
+    //        // Set the value of the slider to the lerp value
+    //        slider.value = lerpValue;
 
-            // Wait for the next frame
-        }
-            yield break;
-    }
+    //        // Wait for the next frame
+    //    }
+    //    yield return;
+    //}
 
-    // fonction level up
-
-    // fonction jesaispluslol
 
 
     private IEnumerator UpdateTextCoroutine(string text, float from, float to, float time)

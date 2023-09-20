@@ -4911,10 +4911,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 23a24322d825aea4b81f0f41540f6633, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ef127266daa0b63458634943969367b9, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 0.9441451
+  m_Pitch: 0.9334992
   Loop: 0
   Mute: 0
   Spatialize: 0

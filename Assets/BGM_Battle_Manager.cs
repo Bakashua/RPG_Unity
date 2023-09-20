@@ -35,17 +35,17 @@ public class BGM_Battle_Manager : MonoBehaviour
     {
         if (previiousSO != ClassicCombat && !isHeroic)
         {
-            Debug.Log("________________" + previiousSO);
+           // Debug.Log("________________" + previiousSO);
 
             ClassicCombat.Play(source);
             previiousSO = ClassicCombat;
-            Debug.Log("_______222_________" + previiousSO);
+            //Debug.Log("_______222_________" + previiousSO);
         }
         //Debug.Log("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww");
         // check si on joue deja le mem son ou mem categorie on ne rejoue pas le son !!!
         if (isHeroic && previiousSO != HeroicTriomph)
         {
-            Debug.Log("wwwwwwwwwwwwwwwww" + previiousSO);
+            //Debug.Log("wwwwwwwwwwwwwwwww" + previiousSO);
             HeroicTriomph.Play(source);
             previiousSO = HeroicTriomph;
             
