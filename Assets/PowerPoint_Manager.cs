@@ -20,6 +20,7 @@ public class PowerPoint_Manager : MonoBehaviour
     AudioSource source;
 
     [Header("UI")]
+    [SerializeField] GameObject UI;
     [SerializeField] Color colorOn;
     [SerializeField] Color colorSelected;
     [SerializeField] Color colorOff;
@@ -34,6 +35,11 @@ public class PowerPoint_Manager : MonoBehaviour
     private void Start()
     {
         source = GetComponent<AudioSource>();
+    }
+
+    public void Listener_SetUP()
+    {
+        UI.SetActive(true);
     }
 
     public void GainPowerPoints()

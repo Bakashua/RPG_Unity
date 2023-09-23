@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 725d3923d5d7a8543ad67697ae4d60d3, type: 3}
   m_Name: H_01_Billy_Leveling
   m_EditorClassIdentifier: 
-  requiredXP: 35
-  currentXP: 0
-  currentLV: 1
+  currentXP: 15
+  xpReceived: 10
+  previousXp: 5
+  requiredXP: 65
+  currentLV: 2
   Base: 20
   Flat: 5
   Acc1: 1.5
@@ -25,5 +27,5 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  statsPoints: 0
-  skillsPoints: 0
+  statsPoints: 20
+  skillsPoints: 2

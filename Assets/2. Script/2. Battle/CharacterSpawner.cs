@@ -52,6 +52,8 @@ public class CharacterSpawner : MonoBehaviour
     {
         BSM = BattleStateMachine.instance_BSM;
         //battleCamManager = GameObject.Find("BattleCamManager").GetComponent<BattleCamManager>();
+        //ClickCreateMonster();
+        Invoke("ClickCreateMonster", StartingDelay);
     }
 
     // set up battle start when click on btn
@@ -72,7 +74,7 @@ public class CharacterSpawner : MonoBehaviour
 
         //set up cam for battle
         //battleCamManager.ActivateMainBattleCam();
-        Invoke("Trigger_Battle", StartingDelay);
+        Trigger_Battle();
     }
 
     void Trigger_Battle()

@@ -7,6 +7,7 @@ using DG.Tweening;
 
 public class UI_Combat_Timeline : MonoBehaviour
 {
+    public GameObject UI;
     public GameObject Icon;
     public Transform TimelineParent;
     public BattleStateMachine BSM;
@@ -15,6 +16,8 @@ public class UI_Combat_Timeline : MonoBehaviour
 
     public void Listener_StartTimeLine()
     {
+        UI.SetActive(true);
+
         foreach (var item in BSM.herosInBattle)
         {
             GameObject icon = Instantiate(Icon, TimelineParent);
@@ -103,4 +106,9 @@ public class UI_Combat_Timeline : MonoBehaviour
         
 
     }
+
+
+
+
+
 }

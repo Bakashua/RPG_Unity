@@ -45,7 +45,7 @@ MonoBehaviour:
     elements: 0
     comboType: 0
   BaseAttackdata:
-    attackDamage: 16.5
+    attackDamage: 27.5
     attackMPCost: 0
     attackTPCost: 0
     MaxCooldown: 0

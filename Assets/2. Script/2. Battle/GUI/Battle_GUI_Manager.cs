@@ -21,6 +21,7 @@ public class Battle_GUI_Manager : MonoBehaviour
     [Header("CLASS")]
     BattleStateMachine BSM;
     public Hero_Party hero_Party;
+    public Launch_Battle Launch_Battle;
 
     [Header("EVENT")]
     public GameEvent Display_Hero;
@@ -123,6 +124,10 @@ public class Battle_GUI_Manager : MonoBehaviour
     {
         BSM = BattleStateMachine.instance_BSM;
         ScriptableObject.CreateInstance("UI_SO_DamagePopUp");
+
+        //Battle_GUI_Manager BM = FindObjectOfType<Battle_GUI_Manager>();
+        //BM.Launch_Battle = this;
+        Launch_Battle = FindObjectOfType<Launch_Battle>();
     }
 
     public void CreateTargetButtons(TargetType targetType)
@@ -503,7 +508,8 @@ public class Battle_GUI_Manager : MonoBehaviour
         Win_TacticalBonus.SetActive(false);
         Win_Item.SetActive(false);
         //Debug.Log("Skipped");
-        StartBattle.SetActive(true);
+        //StartBattle.SetActive(true);
+        Launch_Battle.End_Combat();
     }
     #endregion 
 
