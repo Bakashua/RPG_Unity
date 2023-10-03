@@ -509,11 +509,14 @@ public class Battle_GUI_Manager : MonoBehaviour
         Win_Item.SetActive(false);
         //Debug.Log("Skipped");
         //StartBattle.SetActive(true);
-        Launch_Battle.End_Combat();
+        Invoke("EndCombat", 0.01f);
     }
     #endregion 
 
-
+    void EndCombat()
+    {
+        Launch_Battle.End_Combat();
+    }
 
 
 }

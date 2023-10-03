@@ -17,11 +17,12 @@ public class CharacterSpawner : MonoBehaviour
 
     [Header("Instantiate Monster Data")]
     public GameObject Parent;
-    public GameObject[] monster;
-    public List<Chara_BaseStats> EnemyList;
-    public int initialMonsterSpawn_min;
-    public int initialMonsterSpawn_max;
-    public int maximumOfMonster = 3;
+    public GameObject monsterGO;
+    public SO_Encounter EncounterGroup;
+    //public List<Chara_BaseStats> EnemyList;
+    //public int initialMonsterSpawn_min;
+    //public int initialMonsterSpawn_max;
+    //public int maximumOfMonster = 3;
 
 
     //public GameObject[] hero;
@@ -30,9 +31,9 @@ public class CharacterSpawner : MonoBehaviour
     [Header("SPAWN POINT")]
     public List<Transform> monsterSpawnPoint;
     public List<Transform> heroSpawnPoint;
-    private List<GameObject> instanciatedMonster;
+    //private List<GameObject> instanciatedMonster;
     //private List<GameObject> instanciatedHero;
-    private int numberOfMonster;
+    //private int numberOfMonster;
     private int numberOfHero;
     private GameObject newMonster;
 
@@ -51,6 +52,13 @@ public class CharacterSpawner : MonoBehaviour
     void Start()
     {
         BSM = BattleStateMachine.instance_BSM;
+
+        if(EncounterGroup == null)
+        {
+        Launch_Battle LB = FindObjectOfType<Launch_Battle>();
+        EncounterGroup = LB.Encounter;
+        }
+        //print(LB + "wwwwwwwwwwwwwww");
         //battleCamManager = GameObject.Find("BattleCamManager").GetComponent<BattleCamManager>();
         //ClickCreateMonster();
         Invoke("ClickCreateMonster", StartingDelay);
@@ -62,79 +70,80 @@ public class CharacterSpawner : MonoBehaviour
 
         StartSoundEffect.Play();
 
-        instanciatedMonster = new List<GameObject>();
-        int spawnnbr = Random.Range(initialMonsterSpawn_min, initialMonsterSpawn_max + 1);
-        for (int i = 0; i < spawnnbr; i++)
+        //instanciatedMonster = new List<GameObject>();
+
+        // !!! ici on le fait a partir de encounter
+        //int spawnnbr = Random.Range(initialMonsterSpawn_min, initialMonsterSpawn_max + 1);
+        for (int i = 0; i < EncounterGroup.encounter.Count; i++)
         {
-            AddMonster();
+            //print(EncounterGroup.encounter[i] + " TTTTTTTTTTTTTTTTTTTTTTTTT " + i);
+            // les monster prennent les stats de l encounter
+            AddMonster(EncounterGroup.encounter[i]);
         }
-        InstantiateHero();
-        startBattleButton.SetActive(false);
-        BSM.SetUpList();
 
         //set up cam for battle
         //battleCamManager.ActivateMainBattleCam();
-        Trigger_Battle();
+        Invoke("Trigger_Battle", 0.1f);
+        //Trigger_Battle();
     }
 
     void Trigger_Battle()
     {
+        InstantiateHero();
+        startBattleButton.SetActive(false);
+        BSM.SetUpList();
+
         // CALL EVENT START
         onBattleStart.TriggerEvent();
     }
 
-    private void AddMonster()
+    private void AddMonster(Monster obj)
     {
         // create a new enemy and give him his SO data
-        GameObject newChunkPrefab = RandomMonster();
-        newChunkPrefab.GetComponent<EnemyStateMachine>().enemy = RandomMonsterStats();
+        GameObject newChunkPrefab = monsterGO;
+        newChunkPrefab.GetComponent<EnemyStateMachine>().enemy = ScriptableObject.Instantiate(obj.Enemy);
+        //
         newChunkPrefab.GetComponent<Combat_Movement>().LDM = LDM;
 
 
         // Compute random number for monster spawnpoint OR monster have preference spawn point / random spawn
-        int randomSpawnPoint = Random.Range(0, monsterSpawnPoint.Count);
-
-        if (monsterSpawnPoint[randomSpawnPoint].gameObject.GetComponent<Combat_Tiles>().currentHolder != null)
-        {
-            randomSpawnPoint = randomSpawnPoint + 1;
-        }
+        int randomSpawnPoint = Random.Range(obj.PosA, obj.PosB);
 
         newMonster = Instantiate(newChunkPrefab, monsterSpawnPoint[randomSpawnPoint].position, Quaternion.identity, transform);
         newMonster.transform.parent = Parent.transform;
-        instanciatedMonster.Add(newMonster);
-        numberOfMonster++;
+        //instanciatedMonster.Add(newMonster);
+        //numberOfMonster++;
 
-        if (numberOfMonster == maximumOfMonster)
-        {
-            RemoveFirstModule();
-        }
+        //if (numberOfMonster == maximumOfMonster)
+        //{
+        //    RemoveFirstModule();
+        //}
     }
 
     // Choose a monster from list of monster that would be unstantiated
-    private GameObject RandomMonster()
-    {
-        int randomIndex = Random.Range(0, monster.Length);
-        GameObject randomChunk = monster[randomIndex];
-        return randomChunk;
-    }
+    //private GameObject RandomMonster()
+    //{
+    //    //int randomIndex = Random.Range(0, monster.Length);
+    //    //GameObject randomChunk = monster[randomIndex];
+    //    //return randomChunk;
+    //}
 
-    private Chara_BaseStats RandomMonsterStats()
-    {
-        int randomIndex = Random.Range(0, EnemyList.Count);
-        Chara_BaseStats randomStats = EnemyList[randomIndex];
-        //Debug.Log("randomStats stats = " + randomStats);
+    //private Chara_BaseStats RandomMonsterStats()
+    //{
+    //    int randomIndex = Random.Range(0, EnemyList.Count);
+    //    Chara_BaseStats randomStats = EnemyList[randomIndex];
+    //    //Debug.Log("randomStats stats = " + randomStats);
 
-        Chara_BaseStats InstanceStats = ScriptableObject.Instantiate(randomStats);
-        //Debug.Log("monster stats = " + InstanceStats);
-        return InstanceStats;
-    }
+    //    Chara_BaseStats InstanceStats = ScriptableObject.Instantiate(randomStats);
+    //    //Debug.Log("monster stats = " + InstanceStats);
+    //    return InstanceStats;
+    //}
 
     void RemoveFirstModule()
     {
-        GameObject firstModule = instanciatedMonster[0];
-        Destroy(firstModule);
-
-        instanciatedMonster.RemoveAt(0);
+        //GameObject firstModule = instanciatedMonster[0];
+        //Destroy(firstModule);
+        //instanciatedMonster.RemoveAt(0);
     }
 
     public void InstantiateHero()
