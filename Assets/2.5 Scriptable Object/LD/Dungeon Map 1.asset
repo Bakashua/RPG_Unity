@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f10feee37b49497419efc04241c401a0, type: 3}
+  m_Name: Dungeon Map 1
+  m_EditorClassIdentifier: 
+  DungeonNode: {fileID: 2205189297512862364, guid: 31a38d2aebc71f24ea459e4cbbb721a8,
+    type: 3}
+  NumberOfprebossNode: 5
+  NumberOfStartingNode: 3
+  NumberOfLevels: 1
+  Nodes:
+  - node: 0
+    DistanceFromPreviousNode: 50
+    DistanceVariance: 50
+    randomizePosition: 0.52
+    randomizeNodes: 0
+  Encounters_Normal:
+  - {fileID: 11400000, guid: 0b50141ac82e847469b0eb6f8a309d69, type: 2}
+  - {fileID: 11400000, guid: c8ced2a9efbd59140ad8c0e0a19ec7d4, type: 2}
+  Encounters_Elite:
+  - {fileID: 11400000, guid: c8ced2a9efbd59140ad8c0e0a19ec7d4, type: 2}
+  Encounters_Boss:
+  - {fileID: 11400000, guid: d0eaedf1e528ed445a102e4f8ef9d875, type: 2}
+  Mistery:
+  - wwwww
+  Chest: chest 1
+  Shop: Shop 1
+  Rest: Rest 1

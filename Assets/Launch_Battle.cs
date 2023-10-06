@@ -7,17 +7,12 @@ using TMPro;
 
 public class Launch_Battle : MonoBehaviour
 {
+
+    [Header("______Launch Battle______")]
+
+    [SerializeField] public List<AsyncOperation> sceneloading = new List<AsyncOperation>();
     public string sceneAName;
     public string sceneBName;
-    //public string sceneCName;
-    [SerializeField] public List<AsyncOperation> sceneloading = new List<AsyncOperation>();
-
-    [Header("____________")]
-    public SO_Encounter Encounter;
-
-
-    [Header("____________")]
-
     //public GameObject VFX;
     public GameObject transition;
     public GameObject launchBtn;
@@ -42,7 +37,7 @@ public class Launch_Battle : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-
+   
 
     public void _StartBattle()
     {

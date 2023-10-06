@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2205189297512862370}
   - component: {fileID: 2205189297512862369}
   m_Layer: 5
-  m_Name: GO_Donjon_Node
+  m_Name: GO_LaunchBattle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,8 +37,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000026703, y: 0}
-  m_SizeDelta: {x: 794.5111, y: 388.0607}
+  m_AnchoredPosition: {x: -0.000030518, y: 0}
+  m_SizeDelta: {x: 191.1991, y: 162.0246}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2205189297512862368
 CanvasRenderer:
@@ -148,7 +148,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneAName: Test_LaunchBattle
   sceneBName: Test_UI_Combat_Test_ scene
-  Encounter: {fileID: 11400000, guid: 0b50141ac82e847469b0eb6f8a309d69, type: 2}
   transition: {fileID: 0}
   launchBtn: {fileID: 2205189297512862364}
   mainCam: {fileID: 0}

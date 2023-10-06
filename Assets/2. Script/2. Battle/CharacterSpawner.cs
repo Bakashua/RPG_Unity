@@ -55,8 +55,8 @@ public class CharacterSpawner : MonoBehaviour
 
         if(EncounterGroup == null)
         {
-        Launch_Battle LB = FindObjectOfType<Launch_Battle>();
-        EncounterGroup = LB.Encounter;
+        DungeonNodeObj node = FindObjectOfType<DungeonNodeObj>();
+            EncounterGroup = node.Encounter;
         }
         //print(LB + "wwwwwwwwwwwwwww");
         //battleCamManager = GameObject.Find("BattleCamManager").GetComponent<BattleCamManager>();

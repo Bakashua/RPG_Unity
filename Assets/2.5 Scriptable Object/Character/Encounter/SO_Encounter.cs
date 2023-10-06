@@ -5,6 +5,15 @@ using UnityEditor;
 
 
 [CreateAssetMenu(fileName = "Encounter Group", menuName = "My Game/Enemy/New Encounter")]
+
+
+public class SO_Encounter : ScriptableObject
+{
+    public List<Monster> encounter = new();
+}
+
+
+
 [System.Serializable]
 public class Monster
 {
@@ -13,8 +22,3 @@ public class Monster
     public int PosB;
 }
 
-
-public class SO_Encounter : ScriptableObject
-{
-    public List<Monster> encounter = new();
-}
