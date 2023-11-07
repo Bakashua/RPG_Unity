@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using Random = UnityEngine.Random;
 
 public class EnemyStateMachine : MonoBehaviour
 {
@@ -389,6 +390,7 @@ public class EnemyStateMachine : MonoBehaviour
                     enemy.life_Stats.currentHP = 0;
 
                     SendXpToPlayer();
+                    SendDroptoPlayer();
                     StartCoroutine(IsDead());
                 }
                 //Debug.Log(enemy.general_Setting.CharaName + " ____________ hp = " + enemy.life_Stats.currentHP);
@@ -510,6 +512,29 @@ public class EnemyStateMachine : MonoBehaviour
     {
         // gain xp player
         xpManager.xpGain += enemy.IA.reward.xpReceived;
+    }
+
+    void SendDroptoPlayer()
+    {
+        float totalWeight = 0;
+        foreach (var item in enemy.IA.reward.SpellDroped)
+        {
+            totalWeight += item.dropRate;
+        }
+        float randomValue  = UnityEngine.Random.value * totalWeight;
+
+
+        foreach (var dropItem in enemy.IA.reward.SpellDroped)
+        {
+            randomValue -= dropItem.dropRate;
+
+            if (randomValue <= 0f)
+            {
+                xpManager.spellDropped.Add(dropItem.spell);
+                break;
+            }
+        }
+
     }
 
     #endregion

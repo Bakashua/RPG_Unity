@@ -75,6 +75,7 @@ public class Battle_GUI_Manager : MonoBehaviour
 
     [Header("GUI END FIGHT")]
     public GameObject ButtonNext;
+    public GameObject ItemDropGO;
     int iteration = 0;
     public GameObject BackPanel;
     public GameObject Win_Screen;
@@ -414,6 +415,7 @@ public class Battle_GUI_Manager : MonoBehaviour
     #region EndBattleCanvas
     public void OnClick_BattleIsWon()
     {
+
         foreach (GameObject hero in heroDisplay) { hero.SetActive(false); }
         HeroDiplay.SetActive(false);
 
@@ -483,10 +485,7 @@ public class Battle_GUI_Manager : MonoBehaviour
             data.SetUpPortrait(hero.general_Setting.HeroBust);
             data.SetUpText(chara.leveling);
             data.MoveSlider(chara.leveling);
-
-
         }
-
     }
 
     public void _ShowItem()
@@ -494,6 +493,20 @@ public class Battle_GUI_Manager : MonoBehaviour
         Win_TacticalBonus.SetActive(false);
         Win_HeroParty.SetActive(false);
         Win_Item.SetActive(true);
+
+        for (int i = 0; i < XpManager.instance_XPM.spellDropped.Count; i++)
+        {
+            GameObject newImage = Instantiate(ItemDropGO, Win_Item.transform);
+            newImage.GetComponentInChildren<spell_Btn>().Icon.sprite = XpManager.instance_XPM.spellDropped[i].GeneralSetting.icon;
+
+            // Set the position of the UI image
+            float yPositionOffset = i * 150;
+            RectTransform rectTransform = newImage.GetComponent<RectTransform>();
+            rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, yPositionOffset);
+
+            newImage.transform.parent = Win_Item.transform.parent;
+        }
+        
         //panelTitle.text = "Item";
         //Debug.Log("item showed");
     }

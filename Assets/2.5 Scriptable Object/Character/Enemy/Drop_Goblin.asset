@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xpReceived: 10
   goldReceived: 5
+  SpellDroped:
+  - spell: {fileID: 11400000, guid: 350eca48639cb7e4c96b92f3458daeab, type: 2}
+    dropRate: 0

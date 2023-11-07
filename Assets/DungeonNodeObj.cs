@@ -9,7 +9,8 @@ public class DungeonNodeObj : MonoBehaviour
     public NodeType Type;
     public Image img;
     public List<Sprite> IconList = new();
-    public string deletme;
+
+    [SerializeField] Launch_Battle LB;
 
     [Header("______Data Event______")]
     public SO_Encounter Encounter;
@@ -17,6 +18,7 @@ public class DungeonNodeObj : MonoBehaviour
 
     private void Start()
     {
+        LB = FindObjectOfType<Launch_Battle>();
         Invoke("Initilisation", 0.1f);
         //Initilisation();
     }
@@ -62,6 +64,12 @@ public class DungeonNodeObj : MonoBehaviour
 
 
         }
+    }
+
+    public void IsClicked()
+    {
+        LB.Encounter = Encounter;
+        LB._StartBattle();
     }
 
 }

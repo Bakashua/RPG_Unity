@@ -27,7 +27,6 @@ public class Condition_Extra
     public string FormulaC;
 }
 
-[CreateAssetMenu(fileName = "BaseSkill", menuName = "My Game/Skills/New Skill")]
 
 [System.Serializable]
 public class GENERALSETTING
@@ -46,6 +45,7 @@ public class GENERALSETTING
     [Tooltip("Doesn't do anything. Just comments shown in inspector")]
     public string attackDescription;
     //public image icon
+    public List<SO_SpellTrait> spellTrait = new();
 }
 
 #region enum
@@ -126,6 +126,7 @@ public class RangeAttack
 
 
 
+[CreateAssetMenu(fileName = "BaseSkill", menuName = "My Game/Skills/New Skill")]
 
 [System.Serializable]
 public class BaseAttack : ScriptableObject

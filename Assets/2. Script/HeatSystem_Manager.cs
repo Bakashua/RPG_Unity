@@ -28,6 +28,11 @@ public class HeatSystem_Manager : MonoBehaviour
 
     [SerializeField] List<Chara_BaseStats> hero = new();
 
+
+    [Header("ANIMATED UI")]
+    [SerializeField] TextMeshProUGUI Textanim;
+    [SerializeField] GameObject AnimObj;
+
     public void Initialisation()
     {
         foreach (var item in BSM.herosInBattle)
@@ -48,21 +53,39 @@ public class HeatSystem_Manager : MonoBehaviour
             TextHeat.gameObject.SetActive(true);
             //print("is cold");
             TextHeat.text = "WARM";
+
+            AnimObj.SetActive(true);
+            Textanim.text = "WARM";
         }
         if (PP >= warmThreshold)
         {
             TextHeat.gameObject.SetActive(true);
             // print("is warm");
             TextHeat.text = "BURNING";
+
+            AnimObj.SetActive(true);
+            Textanim.text = "BURNING";
         }
         if (PP >= burnThreshold)
         {
             TextHeat.gameObject.SetActive(true);
             TextHeat.text = "OVERHEAT";
+
+            AnimObj.SetActive(true);
+            Textanim.text = "OVERHEAT";
             //print("is burning");
         }
 
     }
+
+
+    private void ActivateAnimation()
+    {
+
+
+
+    }
+
 
     void HeatStatEffect(Chara_BaseStats target, float bonus)
     {

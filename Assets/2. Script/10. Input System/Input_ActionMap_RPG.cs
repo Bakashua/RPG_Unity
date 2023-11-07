@@ -908,6 +908,15 @@ public partial class @Input_ActionMap_RPG : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenStartMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""44033615-2467-486d-90a5-e1c797c9fcc1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1339,6 +1348,28 @@ public partial class @Input_ActionMap_RPG : IInputActionCollection2, IDisposable
                     ""action"": ""TrackedDeviceOrientation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""df27cb1d-427d-4fc1-b33f-72566c6f18f1"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenStartMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f7025c30-9d86-42e2-a8a1-215240da6c9e"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenStartMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1380,6 +1411,7 @@ public partial class @Input_ActionMap_RPG : IInputActionCollection2, IDisposable
         m_UI_Gen_RightClick = m_UI_Gen.FindAction("RightClick", throwIfNotFound: true);
         m_UI_Gen_TrackedDevicePosition = m_UI_Gen.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_Gen_TrackedDeviceOrientation = m_UI_Gen.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
+        m_UI_Gen_OpenStartMenu = m_UI_Gen.FindAction("OpenStartMenu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1651,6 +1683,7 @@ public partial class @Input_ActionMap_RPG : IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_Gen_RightClick;
     private readonly InputAction m_UI_Gen_TrackedDevicePosition;
     private readonly InputAction m_UI_Gen_TrackedDeviceOrientation;
+    private readonly InputAction m_UI_Gen_OpenStartMenu;
     public struct UI_GenActions
     {
         private @Input_ActionMap_RPG m_Wrapper;
@@ -1665,6 +1698,7 @@ public partial class @Input_ActionMap_RPG : IInputActionCollection2, IDisposable
         public InputAction @RightClick => m_Wrapper.m_UI_Gen_RightClick;
         public InputAction @TrackedDevicePosition => m_Wrapper.m_UI_Gen_TrackedDevicePosition;
         public InputAction @TrackedDeviceOrientation => m_Wrapper.m_UI_Gen_TrackedDeviceOrientation;
+        public InputAction @OpenStartMenu => m_Wrapper.m_UI_Gen_OpenStartMenu;
         public InputActionMap Get() { return m_Wrapper.m_UI_Gen; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1704,6 +1738,9 @@ public partial class @Input_ActionMap_RPG : IInputActionCollection2, IDisposable
                 @TrackedDeviceOrientation.started -= m_Wrapper.m_UI_GenActionsCallbackInterface.OnTrackedDeviceOrientation;
                 @TrackedDeviceOrientation.performed -= m_Wrapper.m_UI_GenActionsCallbackInterface.OnTrackedDeviceOrientation;
                 @TrackedDeviceOrientation.canceled -= m_Wrapper.m_UI_GenActionsCallbackInterface.OnTrackedDeviceOrientation;
+                @OpenStartMenu.started -= m_Wrapper.m_UI_GenActionsCallbackInterface.OnOpenStartMenu;
+                @OpenStartMenu.performed -= m_Wrapper.m_UI_GenActionsCallbackInterface.OnOpenStartMenu;
+                @OpenStartMenu.canceled -= m_Wrapper.m_UI_GenActionsCallbackInterface.OnOpenStartMenu;
             }
             m_Wrapper.m_UI_GenActionsCallbackInterface = instance;
             if (instance != null)
@@ -1738,6 +1775,9 @@ public partial class @Input_ActionMap_RPG : IInputActionCollection2, IDisposable
                 @TrackedDeviceOrientation.started += instance.OnTrackedDeviceOrientation;
                 @TrackedDeviceOrientation.performed += instance.OnTrackedDeviceOrientation;
                 @TrackedDeviceOrientation.canceled += instance.OnTrackedDeviceOrientation;
+                @OpenStartMenu.started += instance.OnOpenStartMenu;
+                @OpenStartMenu.performed += instance.OnOpenStartMenu;
+                @OpenStartMenu.canceled += instance.OnOpenStartMenu;
             }
         }
     }
@@ -1779,5 +1819,6 @@ public partial class @Input_ActionMap_RPG : IInputActionCollection2, IDisposable
         void OnRightClick(InputAction.CallbackContext context);
         void OnTrackedDevicePosition(InputAction.CallbackContext context);
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
+        void OnOpenStartMenu(InputAction.CallbackContext context);
     }
 }

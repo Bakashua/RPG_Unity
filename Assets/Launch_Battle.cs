@@ -15,25 +15,17 @@ public class Launch_Battle : MonoBehaviour
     public string sceneBName;
     //public GameObject VFX;
     public GameObject transition;
-    public GameObject launchBtn;
+    public GameObject DungeonMap;
     public GameObject mainCam;
 
     public Slider bar; 
     float loadProgress = 0;
 
+    [Header("______Data Event______")]
+    public SO_Encounter Encounter;
+
     private void Awake()
     {
-        //SceneManager.LoadSceneAsync(sceneAName));
-        //if (instance_BSM != null && instance_BSM != this)
-        //{
-        //    Destroy(this);
-        //}
-        //else
-        //{
-        //    instance_BSM = this;
-        //}
-
-        // Ensure that this GameObject persists between scenes
         DontDestroyOnLoad(gameObject);
     }
 
@@ -41,7 +33,8 @@ public class Launch_Battle : MonoBehaviour
 
     public void _StartBattle()
     {
-        launchBtn.SetActive(false);
+        //launchBtn.SetActive(false);
+        DungeonMap.SetActive(false);
         transition.SetActive(true);
         Invoke("Trigger_Combat", 0.1f);
     }
@@ -94,9 +87,10 @@ public class Launch_Battle : MonoBehaviour
     public void End_Combat()
     {
         gameObject.SetActive(true);
+        DungeonMap.SetActive(true);
         SceneManager.UnloadSceneAsync(sceneBName);
         mainCam.SetActive(true);
-        launchBtn.SetActive(true);
+        //launchBtn.SetActive(true);
         //SceneManager.LoadScene(sceneAName);
     }
 

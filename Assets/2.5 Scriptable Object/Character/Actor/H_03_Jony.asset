@@ -16,3 +16,4 @@ MonoBehaviour:
   SpellList: {fileID: 11400000, guid: 80a841c56a1df6b4d85c5faa08afbc85, type: 2}
   leveling: {fileID: 11400000, guid: 9fa86f172791adf47be91d8c689cf2b7, type: 2}
   BarkData: {fileID: 11400000, guid: c096df6d771834f4ebb8b8a13710f57e, type: 2}
+  Inventory: {fileID: 11400000, guid: 4ee7e2bcfaf2bc94a94898b3005c1cff, type: 2}

@@ -35,7 +35,10 @@ MonoBehaviour:
       refill: 0.5
       statusTest: {fileID: 0}
       FormulaC: 
-    attackDescription: 
+    attackDescription: this is spell description 4
+    spellTrait:
+    - {fileID: 11400000, guid: 4eeb5e028eb2a61448dc089c09ccb90f, type: 2}
+    - {fileID: 11400000, guid: 4fae05e42694eae4fb4ec7105510428f, type: 2}
   Enumsetting:
     usedOn: 0
     attackCategory: 2

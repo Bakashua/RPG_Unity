@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a16ce717d1650d94289f39da0f9f2145, type: 3}
+  m_Name: H_14_Pierce1_Stats
+  m_EditorClassIdentifier: 
+  general_Setting:
+    CharaHero: {fileID: 11400000, guid: 24e9bacd2d7a4844bbea70588cd7bfbe, type: 2}
+    favoritePosition: 4
+    id: 54b77fd0835bfe142b93ba6e45dca2c6
+    CharaName: Djeeta
+    HeroBust: {fileID: 21300000, guid: cd4dc2849bf091f45a7bd7ac25a7ded9, type: 3}
+    CharaBody: {fileID: 21300000, guid: c0dda1f332718be46a3ede706fc10531, type: 3}
+    Icon: {fileID: 21300000, guid: 791d5a48625987847bd61ade0150d386, type: 3}
+  life_Stats:
+    baseHP: 75
+    currentHP: 550
+    baseMP: 1000
+    currentMP: 1000
+    baseTP: 200
+    currentTP: 3
+    baseShield: 0
+    KeepShield: 0
+    currentShield: 0
+    baseBlnd: 0
+    currentBlnd: 0
+    postureCurr: 1
+    postureMax: 1000000
+  Battle_Stats:
+    baseAtk: 5
+    currentAtk: 10
+    baseDef: 10
+    currentDef: 10
+    baseMatk: 30
+    currentMatk: 10
+    baseMdef: 10
+    currentMdef: 10
+    baseAcc: 10
+    currentAcc: 10
+    baseEva: 10
+    currentEva: 10
+    baseSpeed: 20
+    currentSpeed: 22
+    baseLuck: 10
+    currentLuck: 10
+    baseCritRate: 10
+    currentCritRate: 10
+    baseCritEva: 10
+    currentCritEva: 10
+    baseCritMult: 1.5
+    currentCritMult: 1.5
+    baseAggro: 0
+    currentAggro: 0
+  IA:
+    reward: {fileID: 0}
+    brain: {fileID: 0}
+  defense:
+    vuln_Slash: 1
+    vuln_Bash: 1
+    vuln_Pierce: 1
+    vuln_earth: 1
+    vuln_wind: 1
+    vuln_fire: 1
+    vuln_water: 1
+    vuln_light: 1
+    vuln_darkness: 1
+    imageVulnList: []
+    im_slash: {fileID: 21300000, guid: e767524056292c74a8d7b9d003f157cb, type: 3}
+    im_bash: {fileID: 21300000, guid: b86b8eb5955f0224a863987ae773dd2d, type: 3}
+    im_pierce: {fileID: 21300000, guid: 9319bd93ca482f645b284cbe7cef80c7, type: 3}
+    im_earth: {fileID: 21300000, guid: fd6c78363f62fb94983992c6ade7d102, type: 3}
+    im_wind: {fileID: 21300000, guid: 1c78896451a41ef4693da239fa8a229e, type: 3}
+    im_fire: {fileID: 21300000, guid: 8ede8caf68bee19478577e2da586e2a8, type: 3}
+    im_water: {fileID: 21300000, guid: 1ca1718d8deec7e4f9adfb22274f8adc, type: 3}
+    im_light: {fileID: 21300000, guid: e92288d90dac90b4f9b9be632a86627d, type: 3}
+    im_darkness: {fileID: 21300000, guid: 04b6fa1c8680af241a9c72052041187b, type: 3}
+  Status:
+    SEM: {fileID: 0}
+    poisonRate: 0
+    burnRate: 0
+    sealRate: 0
+    muteRate: 0
+    blindRate: 0
+    sleepRate: 0
+    freezeRate: 0
+    petrifyRate: 0
+    confuseRate: 0
+    charmRate: 0
+    rageRate: 0
+  PhysicVuln: 0
+  elements: 0
+  attacks: []

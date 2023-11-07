@@ -21,7 +21,7 @@ MonoBehaviour:
     CharaBody: {fileID: 21300000, guid: fbf51b50b172bd5429360714ab04d70e, type: 3}
     Icon: {fileID: 21300000, guid: b067ec4d77bcf414eb0cbc9bf07343c0, type: 3}
   life_Stats:
-    baseHP: 50
+    baseHP: 200
     currentHP: 1000
     baseMP: 100
     currentMP: 100

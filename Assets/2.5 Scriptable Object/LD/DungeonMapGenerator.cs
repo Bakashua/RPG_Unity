@@ -34,8 +34,8 @@ public class DungeonMapGenerator : MonoBehaviour
 
     void GenerateButton(int i, int f)
     {
-        float randomVarx = Random.Range(1, 200);
-        float randomVary = Random.Range(1, 200);
+        float randomVarx = Random.Range(1, 10);
+        float randomVary = Random.Range(1, 10);
         Vector3 newPos = new Vector3(Parent.transform.position.x + (f * 200 + randomVarx), Parent.transform.position.y + (i * 300 + randomVary), Parent.transform.position.z);
         GameObject obj = Instantiate(Node, newPos, Parent.transform.rotation);
 

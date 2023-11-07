@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6954d01f87e66d24786eaf0ba466744b, type: 3}
+  m_Name: H_05_Fire1_Bark 1
+  m_EditorClassIdentifier: 
+  source: {fileID: 0}
+  Bark_Start: {fileID: 11400000, guid: c682c0932baa6e04b813096b04aacf14, type: 2}
+  Bark_Attack: {fileID: 11400000, guid: dfb195f665565944eb35e77d1d6aad59, type: 2}
+  Bark_FinishEn: {fileID: 11400000, guid: f3d2b40313f21d44b81629cf4bb51948, type: 2}
+  Bark_GetHits: {fileID: 11400000, guid: b11ee3fae7fd9a244a97b2f2658e8077, type: 2}
+  Bark_EndCombat: {fileID: 11400000, guid: 34fa201f35341ec4dae38efd73cd0fda, type: 2}

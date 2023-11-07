@@ -32,6 +32,7 @@ public class PowerPoint_Manager : MonoBehaviour
 
     bool hasSelected = false;
 
+
     private void Start()
     {
         source = GetComponent<AudioSource>();
@@ -66,6 +67,7 @@ public class PowerPoint_Manager : MonoBehaviour
             }
         }
     }
+
 
     public void AddToSelection()
     {
@@ -262,6 +264,7 @@ public class PowerPoint_Manager : MonoBehaviour
         target.Battle_Stats.currentCritMult = target.Battle_Stats.currentCritMult * bonus;
         target.Battle_Stats.currentCritRate = target.Battle_Stats.currentCritRate * bonus;
     }
+
 
 }
 

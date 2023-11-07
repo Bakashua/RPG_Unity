@@ -13,9 +13,11 @@ public class XpManager : MonoBehaviour
 {
     [HideInInspector] public static XpManager instance_XPM;
     public Hero_Party hero_Party;
-    private BattleStateMachine BSM;
+    //private BattleStateMachine BSM;
     public float xpGain;
 
+    //
+    public List<BaseAttack> spellDropped = new();
 
     private void Awake()
     {
@@ -24,11 +26,6 @@ public class XpManager : MonoBehaviour
         else
         { instance_XPM = this; }
         //Debug.Log(instance_XPM);
-    }
-
-    void Start()
-    {
-        BSM = BattleStateMachine.instance_BSM;
     }
 
 
@@ -44,14 +41,22 @@ public class XpManager : MonoBehaviour
     // ici on donne l xp a la fin du combat
     public void XpEndBattle()
     {
+        ReceiveItem();
         foreach (Chara_Hero chara in hero_Party.HeroInParty_Data)
         {
             // multiplier = get all bonus for xp ibjectives
             //add the multiplier to xp final
             //heroes.GetComponent<HeroStateMachine>().hero.ReceiveXp(xpFinal);
-
             chara.leveling.ReceiveXp(xpGain);
             //Debug.Log("xp from battle = " + xpGain);
+        }
+    }
+
+    public void ReceiveItem()
+    {
+        foreach (var item in spellDropped)
+        {
+            hero_Party.HeroInParty_Data[0].Inventory.ListSpell.Add(item);
         }
     }
 

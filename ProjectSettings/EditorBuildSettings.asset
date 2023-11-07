@@ -11,7 +11,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/1. Scenes/Test_UI_Combat_Test_ scene.unity
     guid: f4c1151655eb51444a4ab78e456ef7d8
-  - enabled: 1
+  - enabled: 0
     path: Assets/1. Scenes/New Scene.unity
     guid: 36b0aa538059f2a46ada5bb79d53b47e
+  - enabled: 1
+    path: Assets/1. Scenes/Gameplay_City.unity
+    guid: ad78c96be3c29ab41beba3272db28dba
+  - enabled: 1
+    path: Assets/1. Scenes/Gameplay_StartMenu.unity
+    guid: e77ff17257add574895cf2557f7c3595
+  - enabled: 1
+    path: Assets/1. Scenes/Gameplay_MainMap.unity
+    guid: bf7679c517d5a7f40ab421c5909d9db8
   m_configObjects: {}

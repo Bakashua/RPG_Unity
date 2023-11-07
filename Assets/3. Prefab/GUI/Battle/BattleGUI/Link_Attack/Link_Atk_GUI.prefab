@@ -604,6 +604,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83eec0ef810815e45a265d71fa5b4002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showOnEnable: 1
+  showOnDisable: 0
   objectToAnimate: {fileID: 0}
   animationType: 0
   easetype: 4
@@ -664,8 +666,6 @@ MonoBehaviour:
   pathType: 1
   waypoints: []
   target: {fileID: 0}
-  showOnEnable: 1
-  showOnDisable: 0
 --- !u!1 &3840019028324484308
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,6 +711,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83eec0ef810815e45a265d71fa5b4002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showOnEnable: 1
+  showOnDisable: 0
   objectToAnimate: {fileID: 0}
   animationType: 2
   easetype: 4
@@ -771,8 +773,6 @@ MonoBehaviour:
   pathType: 1
   waypoints: []
   target: {fileID: 0}
-  showOnEnable: 1
-  showOnDisable: 0
 --- !u!1 &3840019028368668528
 GameObject:
   m_ObjectHideFlags: 0
@@ -1093,6 +1093,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83eec0ef810815e45a265d71fa5b4002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showOnEnable: 1
+  showOnDisable: 0
   objectToAnimate: {fileID: 0}
   animationType: 2
   easetype: 4
@@ -1153,8 +1155,6 @@ MonoBehaviour:
   pathType: 1
   waypoints: []
   target: {fileID: 0}
-  showOnEnable: 1
-  showOnDisable: 0
 --- !u!1 &3840019028691403269
 GameObject:
   m_ObjectHideFlags: 0
@@ -2052,6 +2052,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83eec0ef810815e45a265d71fa5b4002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showOnEnable: 1
+  showOnDisable: 0
   objectToAnimate: {fileID: 0}
   animationType: 2
   easetype: 4
@@ -2112,8 +2114,6 @@ MonoBehaviour:
   pathType: 1
   waypoints: []
   target: {fileID: 0}
-  showOnEnable: 1
-  showOnDisable: 0
 --- !u!1 &3840019030336019909
 GameObject:
   m_ObjectHideFlags: 0
@@ -2204,6 +2204,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83eec0ef810815e45a265d71fa5b4002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showOnEnable: 1
+  showOnDisable: 0
   objectToAnimate: {fileID: 0}
   animationType: 0
   easetype: 4
@@ -2264,8 +2266,6 @@ MonoBehaviour:
   pathType: 1
   waypoints: []
   target: {fileID: 0}
-  showOnEnable: 1
-  showOnDisable: 0
 --- !u!1 &3840019030355193165
 GameObject:
   m_ObjectHideFlags: 0
@@ -2449,6 +2449,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83eec0ef810815e45a265d71fa5b4002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showOnEnable: 1
+  showOnDisable: 0
   objectToAnimate: {fileID: 0}
   animationType: 2
   easetype: 4
@@ -2509,8 +2511,6 @@ MonoBehaviour:
   pathType: 1
   waypoints: []
   target: {fileID: 0}
-  showOnEnable: 1
-  showOnDisable: 0
 --- !u!1 &5557040091748765603
 GameObject:
   m_ObjectHideFlags: 0

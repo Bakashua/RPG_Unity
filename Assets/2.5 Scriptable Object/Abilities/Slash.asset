@@ -35,7 +35,10 @@ MonoBehaviour:
       refill: 0.5
       statusTest: {fileID: 0}
       FormulaC: 
-    attackDescription: 
+    attackDescription: basic atk
+    spellTrait:
+    - {fileID: 11400000, guid: 572b429d02e513f4eb6c935d4837e3e6, type: 2}
+    - {fileID: 11400000, guid: 4eeb5e028eb2a61448dc089c09ccb90f, type: 2}
   Enumsetting:
     usedOn: 0
     attackCategory: 0
@@ -45,7 +48,7 @@ MonoBehaviour:
     elements: 0
     comboType: 0
   BaseAttackdata:
-    attackDamage: 27.5
+    attackDamage: 16.5
     attackMPCost: 0
     attackTPCost: 0
     MaxCooldown: 0

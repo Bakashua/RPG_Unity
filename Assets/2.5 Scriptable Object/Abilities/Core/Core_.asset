@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaa9f91878383484a82f38e0572a4b54, type: 3}
+  m_Name: Core_
+  m_EditorClassIdentifier: 
+  Name: 
+  Icon: {fileID: 0}
+  Level: 0
+  XpRequired: 0
+  Xpcurrent: 0
+  CoreEffect:
+  - Effect: {fileID: 0}
+    Isactive: 0
+    EffectIcon: {fileID: 0}
+    EffectDescription: 
+    EffectDetails: 
+  EmblemEffects: []
+  SpellGiven:
+  - {fileID: 11400000, guid: 10291617cbdd53b4da90e54fcf1fce81, type: 2}

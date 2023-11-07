@@ -6,6 +6,7 @@ using TMPro;
 
 public class spell_Btn : MonoBehaviour
 {
+    public BaseAttack spell;
     public Image Icon;
     public Image Panel;
     public GameObject ActiveAction;

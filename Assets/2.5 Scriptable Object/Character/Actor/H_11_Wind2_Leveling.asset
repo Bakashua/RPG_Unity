@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725d3923d5d7a8543ad67697ae4d60d3, type: 3}
+  m_Name: H_11_Wind2_Leveling
+  m_EditorClassIdentifier: 
+  currentXP: 15
+  xpReceived: 10
+  previousXp: 5
+  requiredXP: 65
+  currentLV: 2
+  Base: 20
+  Flat: 5
+  Acc1: 1.5
+  Acc2: 1
+  poeor:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  statsPoints: 20
+  skillsPoints: 2

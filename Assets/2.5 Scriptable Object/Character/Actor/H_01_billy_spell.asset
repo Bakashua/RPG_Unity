@@ -27,7 +27,7 @@ MonoBehaviour:
   - {fileID: 0}
   O_Set01:
   - {fileID: 11400000, guid: ba3d4f6cacf051e438ce72b97faecb1d, type: 2}
-  - {fileID: 11400000, guid: b16bd52462da1084283c28420a04e917, type: 2}
+  - {fileID: 0}
   - {fileID: 11400000, guid: 10291617cbdd53b4da90e54fcf1fce81, type: 2}
   - {fileID: 11400000, guid: 50a504d7f85b68344b2c28231507b068, type: 2}
   Set02:
@@ -36,10 +36,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   O_Set02:
-  - {fileID: 11400000, guid: ba3d4f6cacf051e438ce72b97faecb1d, type: 2}
+  - {fileID: 11400000, guid: 7b02543e14f2e0148a1a41413e7e9538, type: 2}
+  - {fileID: 11400000, guid: 526178ced3f20ce49b4de5583d2db887, type: 2}
+  - {fileID: 11400000, guid: 4f79cf6acb8422c40835c58d5a2e7116, type: 2}
   - {fileID: 11400000, guid: b16bd52462da1084283c28420a04e917, type: 2}
-  - {fileID: 11400000, guid: 10291617cbdd53b4da90e54fcf1fce81, type: 2}
-  - {fileID: 11400000, guid: 50a504d7f85b68344b2c28231507b068, type: 2}
   ultimate: {fileID: 0}
   O_ultimate: {fileID: 11400000, guid: 50a504d7f85b68344b2c28231507b068, type: 2}
   limitBreak: {fileID: 0}
